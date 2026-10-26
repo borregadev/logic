@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boolean Operators Study Guide</title>
+    <title>Boolean Operators & Set Theory Study Guide</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -96,7 +96,7 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Fixed Header matching maths.html -->
+    <!-- Fixed Header matching layout -->
     <header class="border-b border-white/10 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-4">
@@ -104,8 +104,8 @@
                     <i class="fa-solid fa-microchip text-2xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">Boolean Operators</h1>
-                    <p class="text-sm text-brand-400 font-semibold">Interactive Logic & Precedence Study Guide</p>
+                    <h1 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">Logic & Set Theory</h1>
+                    <p class="text-sm text-brand-400 font-semibold">Interactive Precedence, Quantifiers & Sets Study Guide</p>
                 </div>
             </div>
 
@@ -118,6 +118,10 @@
                 <button id="tab-btn-precedence" onclick="switchTab('precedence')" 
                     class="tab-btn px-4 py-2 rounded-lg text-sm sm:text-base font-bold transition-all flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-800/50">
                     <i class="fa-solid fa-layer-group"></i> Order of Precedence
+                </button>
+                <button id="tab-btn-predicates" onclick="switchTab('predicates')" 
+                    class="tab-btn px-4 py-2 rounded-lg text-sm sm:text-base font-bold transition-all flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-800/50">
+                    <i class="fa-solid fa-shapes"></i> Predicates &amp; Sets
                 </button>
                 <button id="tab-btn-quiz" onclick="switchTab('quiz')" 
                     class="tab-btn px-4 py-2 rounded-lg text-sm sm:text-base font-bold transition-all flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-800/50">
@@ -516,7 +520,7 @@
                         <span class="p-2.5 bg-brand-500/20 text-brand-400 rounded-xl"><i class="fa-solid fa-table-list"></i></span>
                         Master Truth Table Matrix Comparison
                     </h2>
-                    <p class="text-slate-300 text-base mt-1">Side-by-side logical comparison across all input combinations including Tautology & Contradiction.</p>
+                    <p class="text-slate-300 text-base mt-1">Side-by-side logical comparison across all input combinations including Tautology &amp; Contradiction.</p>
                 </div>
 
                 <div class="overflow-x-auto rounded-xl border border-white/10">
@@ -746,7 +750,291 @@ Final Result = True</pre>
 
         </section>
 
-        <!-- TAB 3: INTERACTIVE QUIZ ASSESSMENT -->
+        <!-- TAB 3: PREDICATES, QUANTIFIERS & SET THEORY -->
+        <section id="tab-predicates" class="tab-content hidden space-y-8">
+
+            <!-- Section 1: Predicates & Quantifiers Header Card -->
+            <div class="glass-card rounded-2xl p-6 border border-white/10 shadow-xl space-y-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                            <span class="p-2.5 bg-brand-500/20 text-brand-400 rounded-xl"><i class="fa-solid fa-shapes text-cyanAccent-400"></i></span>
+                            Predicates &amp; Quantifier Logic
+                        </h2>
+                        <p class="text-slate-300 text-sm mt-1">A predicate <strong>P(x)</strong> is a statement with variables that becomes a proposition with a truth value when assigned an element from a <strong>Domain of Discourse (U)</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Quantifier Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <!-- Universal Quantifier -->
+                    <div class="bg-slate-950/80 p-6 rounded-2xl border border-white/10 space-y-3 relative overflow-hidden">
+                        <div class="flex items-center justify-between">
+                            <span class="text-3xl font-extrabold font-mono text-brand-400">∀</span>
+                            <span class="px-3 py-1 rounded-md bg-brand-500/20 text-brand-300 font-mono text-xs font-bold border border-brand-500/30">Universal Quantifier</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">"For All" / "For Every"</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed"><strong>∀x P(x)</strong> asserts that predicate <em>P(x)</em> is TRUE for <u>every single element</u> x in domain U. A single counterexample makes it FALSE.</p>
+                        
+                        <div class="p-3 bg-slate-900 rounded-xl border border-white/5 font-mono text-xs text-brand-300">
+                            <strong>Negation Rule (De Morgan):</strong><br>
+                            ¬(∀x P(x)) ≡ ∃x ¬P(x)
+                        </div>
+                    </div>
+
+                    <!-- Existential Quantifier -->
+                    <div class="bg-slate-950/80 p-6 rounded-2xl border border-white/10 space-y-3 relative overflow-hidden">
+                        <div class="flex items-center justify-between">
+                            <span class="text-3xl font-extrabold font-mono text-cyanAccent-400">∃</span>
+                            <span class="px-3 py-1 rounded-md bg-cyanAccent-500/20 text-cyanAccent-300 font-mono text-xs font-bold border border-cyanAccent-500/30">Existential Quantifier</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">"There Exists" / "For At Least One"</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed"><strong>∃x P(x)</strong> asserts that predicate <em>P(x)</em> is TRUE for <u>at least one element</u> x in domain U. Requires proving just one instance.</p>
+                        
+                        <div class="p-3 bg-slate-900 rounded-xl border border-white/5 font-mono text-xs text-cyanAccent-300">
+                            <strong>Negation Rule (De Morgan):</strong><br>
+                            ¬(∃x P(x)) ≡ ∀x ¬P(x)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Predicate Tester Widget -->
+            <div class="glass-card rounded-2xl p-6 border border-white/10 shadow-xl space-y-4">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-brand-400"></i> Interactive Quantifier Evaluator
+                </h3>
+                <p class="text-xs text-slate-300">Define a numerical Domain U and test a predicate rule to observe how Universal (∀) and Existential (∃) quantifiers evaluate.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-950/80 p-4 rounded-xl border border-white/10">
+                    <div>
+                        <label class="block text-xs font-bold text-brand-400 mb-1">Domain U (comma separated numbers):</label>
+                        <input id="pred-domain" type="text" value="2, 4, 6, 8, 10" class="w-full bg-slate-900 border border-white/20 rounded-lg px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-brand-500" oninput="runPredicateEvaluator()">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-cyanAccent-400 mb-1">Predicate Rule P(x):</label>
+                        <select id="pred-rule" class="w-full bg-slate-900 border border-white/20 rounded-lg px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-cyanAccent-500" onchange="runPredicateEvaluator()">
+                            <option value="even">x is even (x % 2 == 0)</option>
+                            <option value="gt5">x is greater than 5 (x &gt; 5)</option>
+                            <option value="prime">x is a prime number</option>
+                            <option value="positive">x is positive (x &gt; 0)</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button onclick="runPredicateEvaluator()" class="w-full py-2 px-4 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs rounded-lg transition shadow-md">
+                            <i class="fa-solid fa-play mr-1"></i> Evaluate Quantifiers
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Predicate Evaluator Output -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div id="eval-universal-card" class="p-4 rounded-xl border border-white/10 bg-slate-950/60 font-mono text-xs space-y-2">
+                        <div class="text-brand-400 font-bold">∀x P(x) (Universal Statement):</div>
+                        <div id="eval-universal-res" class="text-sm font-extrabold text-white">--</div>
+                        <div id="eval-universal-explain" class="text-slate-400 text-[11px]"></div>
+                    </div>
+                    <div id="eval-existential-card" class="p-4 rounded-xl border border-white/10 bg-slate-950/60 font-mono text-xs space-y-2">
+                        <div class="text-cyanAccent-400 font-bold">∃x P(x) (Existential Statement):</div>
+                        <div id="eval-existential-res" class="text-sm font-extrabold text-white">--</div>
+                        <div id="eval-existential-explain" class="text-slate-400 text-[11px]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Set Theory, Subsets & Symbols -->
+            <div class="glass-card rounded-2xl p-6 border border-white/10 shadow-xl space-y-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="p-2.5 bg-pink-500/20 text-pink-400 rounded-xl"><i class="fa-solid fa-cubes"></i></span>
+                        Set Notation &amp; Subset Relations
+                    </h2>
+                    <p class="text-slate-300 text-sm mt-1">A <strong>set</strong> is an unordered collection of distinct elements. Relationships between sets form the foundational bedrock of mathematical logic and computer science.</p>
+                </div>
+
+                <!-- Notation Table -->
+                <div class="overflow-x-auto rounded-xl border border-white/10">
+                    <table class="w-full text-left font-mono text-xs">
+                        <thead class="bg-slate-950 text-slate-400 uppercase">
+                            <tr>
+                                <th class="p-3 text-cyanAccent-400">Symbol</th>
+                                <th class="p-3 text-amber-400">Concept</th>
+                                <th class="p-3 text-emerald-400">Formal Definition</th>
+                                <th class="p-3">Example</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 bg-slate-900/40 text-slate-300">
+                            <tr class="hover:bg-slate-800/30 transition">
+                                <td class="p-3 text-center text-pink-400 font-extrabold text-base">∈ / ∉</td>
+                                <td class="p-3 font-bold text-white font-sans">Element Membership</td>
+                                <td class="p-3">x ∈ A (x is in A) / x ∉ A (x is not in A)</td>
+                                <td class="p-3 font-sans">3 ∈ {1, 2, 3}</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition">
+                                <td class="p-3 text-center text-cyanAccent-400 font-extrabold text-base">⊆</td>
+                                <td class="p-3 font-bold text-white font-sans">Subset</td>
+                                <td class="p-3">A ⊆ B ≡ ∀x (x ∈ A → x ∈ B)</td>
+                                <td class="p-3 font-sans">{1, 2} ⊆ {1, 2, 3}</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition">
+                                <td class="p-3 text-center text-amber-400 font-extrabold text-base">⊂</td>
+                                <td class="p-3 font-bold text-white font-sans">Proper Subset</td>
+                                <td class="p-3">A ⊂ B ≡ (A ⊆ B) ∧ (A ≠ B)</td>
+                                <td class="p-3 font-sans">{1, 2} ⊂ {1, 2, 3}</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition">
+                                <td class="p-3 text-center text-emerald-400 font-extrabold text-base">∅</td>
+                                <td class="p-3 font-bold text-white font-sans">Empty / Null Set</td>
+                                <td class="p-3">The set containing 0 elements: {}</td>
+                                <td class="p-3 font-sans">∅ ⊆ A for every set A</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition">
+                                <td class="p-3 text-center text-purple-400 font-extrabold text-base">𝒫(A)</td>
+                                <td class="p-3 font-bold text-white font-sans">Power Set</td>
+                                <td class="p-3">Set of all subsets of A; |𝒫(A)| = 2<sup>|A|</sup></td>
+                                <td class="p-3 font-sans">𝒫({1,2}) = {∅, {1}, {2}, {1,2}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Set Operations Visual Diagrams (Venn Diagrams) -->
+                <div class="space-y-4 pt-2">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-diagram-project text-cyanAccent-400"></i> Fundamental Set Operations &amp; Venn Diagrams
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                        <!-- Union -->
+                        <div class="bg-slate-950/80 p-4 rounded-xl border border-white/10 flex flex-col justify-between space-y-3">
+                            <div class="text-center">
+                                <span class="font-mono text-sm font-bold text-brand-400">Union: A ∪ B</span>
+                                <p class="text-[11px] text-slate-300 mt-1">{x | x ∈ A ∨ x ∈ B}</p>
+                            </div>
+                            <div class="w-full flex justify-center py-2">
+                                <svg width="140" height="90" viewBox="0 0 140 90">
+                                    <circle cx="50" cy="45" r="35" fill="rgba(99, 102, 241, 0.4)" stroke="#818cf8" stroke-width="2"/>
+                                    <circle cx="90" cy="45" r="35" fill="rgba(99, 102, 241, 0.4)" stroke="#818cf8" stroke-width="2"/>
+                                    <text x="35" y="48" fill="#ffffff" font-size="10" font-weight="bold">A</text>
+                                    <text x="95" y="48" fill="#ffffff" font-size="10" font-weight="bold">B</text>
+                                </svg>
+                            </div>
+                            <div class="text-[11px] text-slate-400 text-center">Elements in A, or B, or both.</div>
+                        </div>
+
+                        <!-- Intersection -->
+                        <div class="bg-slate-950/80 p-4 rounded-xl border border-white/10 flex flex-col justify-between space-y-3">
+                            <div class="text-center">
+                                <span class="font-mono text-sm font-bold text-cyanAccent-400">Intersection: A ∩ B</span>
+                                <p class="text-[11px] text-slate-300 mt-1">{x | x ∈ A ∧ x ∈ B}</p>
+                            </div>
+                            <div class="w-full flex justify-center py-2">
+                                <svg width="140" height="90" viewBox="0 0 140 90">
+                                    <defs>
+                                        <clipPath id="clip-A">
+                                            <circle cx="50" cy="45" r="35"/>
+                                        </clipPath>
+                                    </defs>
+                                    <circle cx="50" cy="45" r="35" fill="rgba(255,255,255,0.05)" stroke="#22d3ee" stroke-width="2"/>
+                                    <circle cx="90" cy="45" r="35" fill="rgba(255,255,255,0.05)" stroke="#22d3ee" stroke-width="2"/>
+                                    <!-- Highlight Intersection -->
+                                    <circle cx="90" cy="45" r="35" fill="rgba(6, 182, 212, 0.7)" clip-path="url(#clip-A)"/>
+                                    <text x="35" y="48" fill="#ffffff" font-size="10" font-weight="bold">A</text>
+                                    <text x="95" y="48" fill="#ffffff" font-size="10" font-weight="bold">B</text>
+                                </svg>
+                            </div>
+                            <div class="text-[11px] text-slate-400 text-center">Elements shared by both A and B.</div>
+                        </div>
+
+                        <!-- Difference -->
+                        <div class="bg-slate-950/80 p-4 rounded-xl border border-white/10 flex flex-col justify-between space-y-3">
+                            <div class="text-center">
+                                <span class="font-mono text-sm font-bold text-pink-400">Difference: A \ B</span>
+                                <p class="text-[11px] text-slate-300 mt-1">{x | x ∈ A ∧ x ∉ B}</p>
+                            </div>
+                            <div class="w-full flex justify-center py-2">
+                                <svg width="140" height="90" viewBox="0 0 140 90">
+                                    <circle cx="50" cy="45" r="35" fill="rgba(236, 72, 153, 0.5)" stroke="#f472b6" stroke-width="2"/>
+                                    <circle cx="90" cy="45" r="35" fill="#070b12" stroke="#f472b6" stroke-width="2"/>
+                                    <text x="35" y="48" fill="#ffffff" font-size="10" font-weight="bold">A</text>
+                                    <text x="95" y="48" fill="#ffffff" font-size="10" font-weight="bold">B</text>
+                                </svg>
+                            </div>
+                            <div class="text-[11px] text-slate-400 text-center">Elements in A that are NOT in B.</div>
+                        </div>
+
+                        <!-- Complement -->
+                        <div class="bg-slate-950/80 p-4 rounded-xl border border-white/10 flex flex-col justify-between space-y-3">
+                            <div class="text-center">
+                                <span class="font-mono text-sm font-bold text-amber-400">Complement: A<sup>c</sup></span>
+                                <p class="text-[11px] text-slate-300 mt-1">{x ∈ U | x ∉ A}</p>
+                            </div>
+                            <div class="w-full flex justify-center py-2">
+                                <svg width="140" height="90" viewBox="0 0 140 90">
+                                    <rect x="5" y="5" width="130" height="80" rx="8" fill="rgba(245, 158, 11, 0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+                                    <circle cx="70" cy="45" r="30" fill="#070b12" stroke="#fbbf24" stroke-width="2"/>
+                                    <text x="70" y="48" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">A</text>
+                                    <text x="18" y="22" fill="#fbbf24" font-size="10" font-weight="bold">U</text>
+                                </svg>
+                            </div>
+                            <div class="text-[11px] text-slate-400 text-center">All elements in Universe U outside A.</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Set Calculator Card -->
+            <div class="glass-card rounded-2xl p-6 border border-white/10 shadow-xl space-y-4">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-cyanAccent-400"></i> Interactive Set Operations Calculator
+                </h3>
+                <p class="text-xs text-slate-300">Enter elements for Set A and Set B below (comma separated) to compute set operations, subsets, and power set cardinality live.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-950/80 p-4 rounded-xl border border-white/10">
+                    <div>
+                        <label class="block text-xs font-bold text-brand-400 mb-1">Set A Elements:</label>
+                        <input id="input-set-a" type="text" value="1, 2, 3, 4" class="w-full bg-slate-900 border border-white/20 rounded-lg px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-brand-500" oninput="calculateSetOperations()">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-cyanAccent-400 mb-1">Set B Elements:</label>
+                        <input id="input-set-b" type="text" value="3, 4, 5, 6" class="w-full bg-slate-900 border border-white/20 rounded-lg px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-cyanAccent-500" oninput="calculateSetOperations()">
+                    </div>
+                </div>
+
+                <!-- Live Results -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-xs">
+                    <div class="p-3 rounded-xl bg-slate-950/60 border border-white/10 space-y-1">
+                        <span class="text-brand-400 font-bold block">Union (A ∪ B):</span>
+                        <span id="res-union" class="text-white font-extrabold text-sm block">{ }</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/60 border border-white/10 space-y-1">
+                        <span class="text-cyanAccent-400 font-bold block">Intersection (A ∩ B):</span>
+                        <span id="res-intersection" class="text-white font-extrabold text-sm block">{ }</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/60 border border-white/10 space-y-1">
+                        <span class="text-pink-400 font-bold block">Difference (A \ B):</span>
+                        <span id="res-diff-ab" class="text-white font-extrabold text-sm block">{ }</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/60 border border-white/10 space-y-1">
+                        <span class="text-amber-400 font-bold block">Symm. Diff (A ⊕ B):</span>
+                        <span id="res-symm-diff" class="text-white font-extrabold text-sm block">{ }</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/60 border border-white/10 space-y-1">
+                        <span class="text-emerald-400 font-bold block">Subset Relations:</span>
+                        <span id="res-subset-rel" class="text-emerald-300 font-extrabold text-xs block">A ⊄ B, B ⊄ A</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/60 border border-white/10 space-y-1">
+                        <span class="text-purple-400 font-bold block">Power Set Size |𝒫(A)|:</span>
+                        <span id="res-power-a" class="text-white font-extrabold text-sm block">2^4 = 16 subsets</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TAB 4: INTERACTIVE QUIZ ASSESSMENT -->
         <section id="tab-quiz" class="tab-content hidden space-y-6">
             
             <!-- Quiz Score Header -->
@@ -756,15 +1044,15 @@ Final Result = True</pre>
                         <i class="fa-solid fa-award"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold text-white">Knowledge Check Quiz</h2>
-                        <p class="text-slate-300 text-sm">Test your mastery of Boolean operators and precedence rules.</p>
+                        <h2 class="text-xl font-bold text-white">Comprehensive Assessment Quiz</h2>
+                        <p class="text-slate-300 text-sm">Test your mastery across Boolean logic, precedence, quantifiers, and set relations.</p>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-6 bg-slate-950/80 px-5 py-3 rounded-2xl border border-white/10">
                     <div class="text-right">
                         <span class="text-xs text-slate-300 block font-bold">Current Score</span>
-                        <span class="font-mono text-2xl font-extrabold text-brand-400"><span id="score">0</span> / <span id="total-q">5</span></span>
+                        <span class="font-mono text-2xl font-extrabold text-brand-400"><span id="score">0</span> / <span id="total-q">8</span></span>
                     </div>
                     <button onclick="resetQuiz()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm font-bold border border-white/10 transition flex items-center gap-2">
                         <i class="fa-solid fa-rotate-right text-cyanAccent-400"></i> Restart
@@ -784,7 +1072,7 @@ Final Result = True</pre>
     <!-- Footer -->
     <footer class="border-t border-white/10 bg-slate-950/80 backdrop-blur-md py-6 text-center text-sm text-slate-400 font-medium mt-auto">
         <div class="max-w-7xl mx-auto px-4">
-            Boolean Operators Interactive Study Guide • Rendered with Glassmorphic Interactive Design System
+            Boolean &amp; Set Theory Interactive Study Guide • Rendered with Glassmorphic Interactive Design System
         </div>
     </footer>
 
@@ -895,6 +1183,90 @@ Final Result = True</pre>
             });
         }
 
+        /* --- Predicate Evaluator --- */
+        function runPredicateEvaluator() {
+            const domainInput = document.getElementById('pred-domain').value;
+            const rule = document.getElementById('pred-rule').value;
+
+            const domain = domainInput.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n));
+
+            if (domain.length === 0) {
+                document.getElementById('eval-universal-res').textContent = "Domain empty or invalid";
+                document.getElementById('eval-existential-res').textContent = "Domain empty or invalid";
+                return;
+            }
+
+            const isPrime = n => {
+                if (n <= 1) return false;
+                for (let i = 2; i <= Math.sqrt(n); i++) if (n % i === 0) return false;
+                return true;
+            };
+
+            const testFunc = x => {
+                if (rule === 'even') return x % 2 === 0;
+                if (rule === 'gt5') return x > 5;
+                if (rule === 'prime') return isPrime(x);
+                if (rule === 'positive') return x > 0;
+                return false;
+            };
+
+            const results = domain.map(x => ({ val: x, passes: testFunc(x) }));
+            const allPass = results.every(r => r.passes);
+            const anyPass = results.some(r => r.passes);
+
+            const univResElem = document.getElementById('eval-universal-res');
+            univResElem.textContent = allPass ? "TRUE" : "FALSE";
+            univResElem.className = allPass ? "text-sm font-extrabold text-emerald-400" : "text-sm font-extrabold text-rose-400";
+
+            const failing = results.filter(r => !r.passes).map(r => r.val);
+            document.getElementById('eval-universal-explain').textContent = allPass 
+                ? `P(x) holds for every x in {${domain.join(', ')}}.`
+                : `Counterexample(s) found: x = ${failing.join(', ')} fail P(x).`;
+
+            const existResElem = document.getElementById('eval-existential-res');
+            existResElem.textContent = anyPass ? "TRUE" : "FALSE";
+            existResElem.className = anyPass ? "text-sm font-extrabold text-emerald-400" : "text-sm font-extrabold text-rose-400";
+
+            const passing = results.filter(r => r.passes).map(r => r.val);
+            document.getElementById('eval-existential-explain').textContent = anyPass
+                ? `Satisfying element(s): x = ${passing.join(', ')}.`
+                : `No elements in {${domain.join(', ')}} satisfy P(x).`;
+        }
+
+        /* --- Set Calculator --- */
+        function calculateSetOperations() {
+            const rawA = document.getElementById('input-set-a').value;
+            const rawB = document.getElementById('input-set-b').value;
+
+            const parseSet = str => Array.from(new Set(str.split(',').map(s => s.trim()).filter(s => s.length > 0)));
+
+            const setA = parseSet(rawA);
+            const setB = parseSet(rawB);
+
+            const union = Array.from(new Set([...setA, ...setB]));
+            const intersection = setA.filter(x => setB.includes(x));
+            const diffAB = setA.filter(x => !setB.includes(x));
+            const symmDiff = union.filter(x => !(setA.includes(x) && setB.includes(x)));
+
+            const isSubsetA_B = setA.every(x => setB.includes(x));
+            const isSubsetB_A = setB.every(x => setA.includes(x));
+
+            document.getElementById('res-union').textContent = `{ ${union.join(', ')} }`;
+            document.getElementById('res-intersection').textContent = intersection.length > 0 ? `{ ${intersection.join(', ')} }` : '∅ (Empty Set)';
+            document.getElementById('res-diff-ab').textContent = diffAB.length > 0 ? `{ ${diffAB.join(', ')} }` : '∅ (Empty Set)';
+            document.getElementById('res-symm-diff').textContent = symmDiff.length > 0 ? `{ ${symmDiff.join(', ')} }` : '∅ (Empty Set)';
+
+            let relText = "";
+            if (isSubsetA_B && isSubsetB_A) relText = "A = B (Equal Sets)";
+            else if (isSubsetA_B) relText = "A ⊂ B (A is proper subset of B)";
+            else if (isSubsetB_A) relText = "B ⊂ A (B is proper subset of A)";
+            else relText = "A ⊄ B and B ⊄ A";
+            document.getElementById('res-subset-rel').textContent = relText;
+
+            const powerSize = Math.pow(2, setA.length);
+            document.getElementById('res-power-a').textContent = `2^${setA.length} = ${powerSize} subsets`;
+        }
+
         const questions = [
             {
                 q: "Which logical operator evaluates to True ONLY when both inputs (p and q) are True?",
@@ -948,6 +1320,39 @@ Final Result = True</pre>
                 ],
                 answer: 2,
                 explanation: "Negation (NOT) has the highest priority among single/binary operators and is evaluated before AND, OR, or Conditional statements."
+            },
+            {
+                q: "What is the logical negation of the universal quantifier statement ¬(∀x P(x)) according to De Morgan's laws?",
+                options: [
+                    "∀x ¬P(x)",
+                    "∃x ¬P(x)",
+                    "¬∃x P(x)",
+                    "∃x P(x)"
+                ],
+                answer: 1,
+                explanation: "Negating 'For all x, P(x) holds' means 'There exists at least one x where P(x) does NOT hold' (∃x ¬P(x))."
+            },
+            {
+                q: "If set A = {1, 2, 3}, how many elements are contained in its Power Set 𝒫(A)?",
+                options: [
+                    "3",
+                    "6",
+                    "8",
+                    "9"
+                ],
+                answer: 2,
+                explanation: "The cardinality of a Power Set |𝒫(A)| is 2^|A|. With 3 elements, 2^3 = 8 subsets (including ∅ and A itself)."
+            },
+            {
+                q: "Which set operation produces elements that are in set A AND in set B simultaneously?",
+                options: [
+                    "Union (A ∪ B)",
+                    "Intersection (A ∩ B)",
+                    "Difference (A \\ B)",
+                    "Symmetric Difference (A ⊕ B)"
+                ],
+                answer: 1,
+                explanation: "Intersection (A ∩ B) retains elements present in both sets (x ∈ A and x ∈ B)."
             }
         ];
 
@@ -1022,7 +1427,10 @@ Final Result = True</pre>
             renderQuiz();
         }
 
+        // Initialize default highlights & evaluators
         updateHighlights();
+        runPredicateEvaluator();
+        calculateSetOperations();
         renderQuiz();
     </script>
 </body>
